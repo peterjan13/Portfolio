@@ -67,7 +67,7 @@ body {
 
 .navbar a:hover,
 .navbar a.active {
-  color: red;
+  color: rgb(255, 217, 0);
 }
 
 #menu-icon {
@@ -264,7 +264,7 @@ section {
   width: 45%;
   height: 100%;
   background: transparent;
-  transition: 3s;
+  transition: 1s;
 }
 
 .home-imgHover:hover {
