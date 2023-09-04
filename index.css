@@ -956,3 +956,8 @@ section:nth-child(odd) .animate.scroll,
 #contact {
   min-height: 100vh;
 }
+
+.about-paragraph {
+  text-align: justify;
+}
+
