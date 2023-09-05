@@ -62,11 +62,7 @@
 
         <div class="btn-box">
           <a href="#contact" class="btn">Hire Me</a>
-          <a
-            href="#projects"
-            class="btn"
-            >Projects</a
-          >
+          <a href="#projects" class="btn">Projects</a>
           <span class="animate" style="--i: 5"></span>
         </div>
       </div>
@@ -172,7 +168,8 @@
                 </p>
                 <p>
                   Demo Link:
-                  <a class="project-link"
+                  <a
+                    class="project-link"
                     href="https://peterjan13.github.io/Portfolio/"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -181,7 +178,8 @@
                 </p>
                 <p>
                   Repository Link:
-                  <a class="project-link"
+                  <a
+                    class="project-link"
                     href="https://github.com/peterjan13/Portfolio.git"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -204,7 +202,8 @@
                 </p>
                 <p>
                   API Endpoint:
-                  <a class="project-link"
+                  <a
+                    class="project-link"
                     href="https://eco-products-nbj3.onrender.com"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -213,7 +212,8 @@
                 </p>
                 <p>
                   Repository Link:
-                  <a class="project-link"
+                  <a
+                    class="project-link"
                     href="https://gitlab.com/camachopeterjan/capstone2.git"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -237,7 +237,8 @@
                 </p>
                 <p>
                   Demo Link:
-                  <a class="project-link"
+                  <a
+                    class="project-link"
                     href="https://matrixx-prosthetic-products.vercel.app"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -246,7 +247,8 @@
                 </p>
                 <p>
                   Repository Link:
-                  <a class="project-link"
+                  <a
+                    class="project-link"
                     href="https://gitlab.com/camachopeterjan/capstone3.git"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -343,14 +345,19 @@
         ><span class="animate scroll" style="--i: 1"></span>
       </h2>
 
-      <form action="#">
+      <form method="post">
         <div class="input-box">
           <div class="input-field">
-            <input type="text" placeholder="Full Name" required />
+            <input type="text" placeholder="Full Name" id="name" required />
             <span class="focus"></span>
           </div>
           <div class="input-field">
-            <input type="text" placeholder="Email Address" required />
+            <input
+              type="text"
+              placeholder="Email Address"
+              id="email"
+              required
+            />
             <span class="focus"></span>
           </div>
 
@@ -359,11 +366,16 @@
 
         <div class="input-box">
           <div class="input-field">
-            <input type="number" placeholder="Mobile Number" required />
+            <input
+              type="number"
+              placeholder="Mobile Number"
+              id="mobileNumber"
+              required
+            />
             <span class="focus"></span>
           </div>
           <div class="input-field">
-            <input type="text" placeholder="Email Subject" required />
+            <input type="text" placeholder="Subject" id="subject" required />
             <span class="focus"></span>
           </div>
 
@@ -372,8 +384,7 @@
 
         <div class="textarea-field">
           <textarea
-            name=""
-            id=""
+            id="message"
             cols="30"
             rows="10"
             placeholder="Your Message"
@@ -385,7 +396,7 @@
         </div>
 
         <div class="btn-box btns">
-          <button type="submit" class="btn">Submit</button>
+          <button type="submit" class="btn" id="btn">Submit</button>
 
           <span class="animate scroll" style="--i: 9"></span>
         </div>
@@ -401,12 +412,45 @@
       </div>
 
       <div class="footer-iconTop">
-        <a href="#"><i class="bx bx-up-arrow-alt"></i></a>
+        <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
 
         <span class="animate scroll" style="--i: 3"></span>
       </div>
     </footer>
 
     <script src="./index.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      let btn = document.getElementById("btn");
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let mobileNumber = document.getElementById("mobileNumber").value;
+        let subject = document.getElementById("subject").value;
+        let message = document.getElementById("message").value;
+        let body =
+          "name: " +
+          name +
+          "<br/> email: " +
+          email +
+          "<br/> mobileNumber: " +
+          mobileNumber +
+          "<br/> subject: " +
+          subject +
+          "<br/> message: " +
+          message;
+
+        Email.send({
+          Host: "smtp.elasticemail.com",
+          Username: "legendzenir2@gmail.com",
+          Password: "A54C31037A1E81B784607D71ACBDF1F82877",
+          To: "camachopeterjan@gmail.com",
+          From: "legendzenir2@gmail.com",
+          Subject: "contact message",
+          Body: body,
+        }).then((message) => alert(message));
+      });
+    </script>
   </body>
 </html>
